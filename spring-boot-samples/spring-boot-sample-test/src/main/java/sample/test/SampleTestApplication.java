@@ -34,8 +34,9 @@ public class SampleTestApplication {
 	public static void main(String[] args) {
 
 
-		SpringApplication.run(SampleTestApplication.class, args);
+		ConfigurableApplicationContext applicationContext=SpringApplication.run(SampleTestApplication.class, args);
 
+		//applicationContext.getBean("myJavabean");
 	}
 
 }

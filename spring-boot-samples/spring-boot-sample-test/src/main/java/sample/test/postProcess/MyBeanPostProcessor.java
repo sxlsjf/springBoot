@@ -15,6 +15,8 @@ import sample.test.factoryBean.MyFactoryBean;
 @Component
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
+	private int i=0;
+
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 		if(bean instanceof MyJavaBean){
@@ -22,6 +24,8 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 			System.out.println("第五步：BeanPostProcessor，对象" + beanName + "调用初始化方法之前的数据： " + bean.toString()+bean1.autwiredClass);
 
 		}
+
+		System.out.println(++i+"当前是bean:"+beanName);
 		return bean;
 	}
 
@@ -31,6 +35,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 			MyJavaBean bean1= (MyJavaBean) bean;
 			System.out.println("第八步：BeanPostProcessor，对象" + beanName + "调用初始化方法之后的数据：" + bean.toString()+bean1.autwiredClass);
 		}
+
 		return bean;
 	}
 
