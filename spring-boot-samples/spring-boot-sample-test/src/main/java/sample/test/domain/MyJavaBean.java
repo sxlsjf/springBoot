@@ -2,6 +2,7 @@ package sample.test.domain;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import sample.test.annotation.MyAnnotation;
 
 
 /**
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Version 1.0
  * @description：${description}
  */
-
+@MyAnnotation
 public class MyJavaBean implements InitializingBean {
 	private String desc;
 	private String remark;

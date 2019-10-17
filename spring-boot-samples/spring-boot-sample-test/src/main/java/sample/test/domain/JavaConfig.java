@@ -1,9 +1,15 @@
 package sample.test.domain;
+import	java.lang.annotation.Annotation;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.AutoConfigurationImportSelector;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Component;
+import sample.test.annotation.MyAnnotation;
 import sample.test.postProcess.MyBeanDefinationRegisterPostProcessor;
+import sample.test.postProcess.MyBeanPostProcessor;
+import sample.test.postProcess.MyDefinitionRegistrar;
+
 
 /**
  * @Author: shenxl
@@ -12,7 +18,7 @@ import sample.test.postProcess.MyBeanDefinationRegisterPostProcessor;
  * @description：${description}
  */
 @Configuration
-@Component
+@Import({ImportClass.class, MyDefinitionRegistrar.class})
 public class JavaConfig {
 
 	@Bean(initMethod="initMethod")
@@ -25,4 +31,16 @@ public class JavaConfig {
 		return new MyBeanDefinationRegisterPostProcessor();
 	}*/
 
+	@Bean
+	public MyBeanPostProcessor MyBeanPostProcessor(MyJavaBean myJavaBean){
+		return new MyBeanPostProcessor(myJavaBean);
+	}
+
+
+	@Bean
+	@DependsOn(value = {"myJavaBean"})
+	@ConditionalOnBean(annotation = MyAnnotation.class)
+	public AnnoationClass annoationClass(){
+		return new AnnoationClass();
+	}
 }

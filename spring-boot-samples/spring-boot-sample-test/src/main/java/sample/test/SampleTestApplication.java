@@ -19,6 +19,7 @@ package sample.test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import sample.test.annotation.MyAnnotation;
 
 /**
  * Sample application to demonstrate testing.
@@ -26,6 +27,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @author Phillip Webb
  */
 @SpringBootApplication
+@MyAnnotation
 public class SampleTestApplication {
 
 	// NOTE: this application will intentionally not start without MySQL, the test will
