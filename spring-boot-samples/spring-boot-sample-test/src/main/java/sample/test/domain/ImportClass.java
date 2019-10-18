@@ -1,6 +1,7 @@
 package sample.test.domain;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
+import sample.test.domain.test.Test;
 
 /**
  * @Author: shenxl

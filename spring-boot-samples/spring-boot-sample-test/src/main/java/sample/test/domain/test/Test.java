@@ -1,4 +1,4 @@
-package sample.test.domain;
+package sample.test.domain.test;
 
 /**
  * @Author: shenxl
