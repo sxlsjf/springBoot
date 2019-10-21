@@ -26,7 +26,7 @@ import java.util.HashMap;
  * @description：${description}
  */
 // 准备一个Class类 作为Demo演示
-@Repository("repositoryName")
+//@Repository("repositoryName")
 @Service("serviceName")
 @EnableAsync
 public class MetaDemo extends HashMap<String, String> implements Serializable {
