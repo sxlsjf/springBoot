@@ -38,7 +38,6 @@ public class MetaDemo extends HashMap<String, String> implements Serializable {
 		return "demo";
 	}
 
-
 	public static void main(String[] args) {
 		StandardAnnotationMetadata metadata = new StandardAnnotationMetadata(MetaDemo.class, true);
 
