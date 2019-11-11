@@ -24,6 +24,8 @@ public class MyDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
 		AnnotationAttributes annotationAttributes = AnnotationAttributes.fromMap(
 				importingClassMetadata.getAnnotationAttributes(
 						MyAnnotation.class.getName()));
+
+
 		registry.registerBeanDefinition("annoationClass", BeanDefinitionBuilder.rootBeanDefinition(AnnoationClass.class).getBeanDefinition());
 
 

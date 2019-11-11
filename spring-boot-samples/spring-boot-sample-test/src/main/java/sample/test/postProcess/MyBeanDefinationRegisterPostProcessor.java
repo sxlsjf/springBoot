@@ -30,6 +30,7 @@ public class MyBeanDefinationRegisterPostProcessor implements BeanDefinitionRegi
 
 		RootBeanDefinition root = new RootBeanDefinition(MyFactoryBean.class);
 		registry.registerBeanDefinition("myFactoryBean", root);
+
 		System.out.println("第一步：myFactoryBean定义在这里被注册");
 
 	}

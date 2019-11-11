@@ -2,6 +2,7 @@ package sample.test.domain.test;
 
 import org.springframework.core.io.*;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import sample.test.event.MyEvent;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -20,11 +21,11 @@ public class DemoResources {
 	public static void main(String[] args) throws Exception {
 		// 此处用相对路径，那就是相对DemoResources所在的路径。因此此处需要demo.properties和DemoResources.class文件在同一个包里面  否则请用对应的../../等
 		// 这里DemoResources所在包为：sample.test.domian.test  因此最终找的文件地址为：sample/test/domain/test/demo.properties 会去这里找文件
-		URL resource = DemoResources.class.getResource("demo.properties");
+		URL resource = MyEvent.class.getResource("demo.properties");
 		System.out.println(resource); //file:/E:/work/remotegitcheckoutproject/myprojects/java/demo-war/target/classes/com/fsx/maintest/demo.properties
 
 		// 若采用绝对路径 /就代表当前项目名~~~~  所以此处的效果同上~~~
-		resource = DemoResources.class.getResource("classpath:sample/test/domain/test/demo.properties");
+		resource = DemoResources.class.getResource("sample/test/domain/test/demo.properties");
 		System.out.println(resource); // 同上
 
 		// 关于getResourceAsStream的使用，路径处理上和上面一致，此处就不做过多解释了

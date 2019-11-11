@@ -13,11 +13,10 @@ public class DemoSystemTest {
 
 	public static void main(String[] args) {
 
-		/*Map<String, String> envMap = System.getenv();
+		Map<String, String> envMap = System.getenv();
 		envMap.forEach((key, value) -> {
 			System.out.println(key + "=" + value);
 		});
-*/
 
 		Properties properties = System.getProperties();
 		System.setProperty("myProperty", "自定义的系统属性~"); // 允许自定义系统属性
