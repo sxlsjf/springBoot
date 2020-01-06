@@ -16,7 +16,7 @@ public class FeatureTaskTest {
 
 		FutureTask<String> task = new FutureTask<>(() -> {
 			System.out.println("买厨具ing...");
-			Thread.sleep(5000);
+			//Thread.sleep(5000);
 			System.out.println("买厨具完成");
 			return "刀";
 		});
@@ -25,7 +25,7 @@ public class FeatureTaskTest {
 		new Thread(task).start();
 
 		// 第二步 去超市购买食材
-		Thread.sleep(2000);  // 模拟购买食材时间
+	//	Thread.sleep(2000);  // 模拟购买食材时间
 
 		System.out.println("第二步：食材到位");
 

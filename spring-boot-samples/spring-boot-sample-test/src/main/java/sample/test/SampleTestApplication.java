@@ -19,6 +19,8 @@ package sample.test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 import sample.test.annotation.MyAnnotation;
 
 /**
@@ -26,6 +28,9 @@ import sample.test.annotation.MyAnnotation;
  *
  * @author Phillip Webb
  */
+
+@ImportResource(locations = "classpath:spring-beans.xml")
+@PropertySource("classpath:mypro.properties")
 @SpringBootApplication
 @MyAnnotation
 public class SampleTestApplication {
@@ -38,7 +43,9 @@ public class SampleTestApplication {
 
 		ConfigurableApplicationContext applicationContext=SpringApplication.run(SampleTestApplication.class, args);
 
-		//applicationContext.getBean("myJavabean");
+		Object o=applicationContext.getBean("myUser");
+
+		System.out.println(o.toString());
 	}
 
 }

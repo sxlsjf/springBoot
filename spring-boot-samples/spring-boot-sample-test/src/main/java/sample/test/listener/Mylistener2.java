@@ -31,7 +31,18 @@ public class Mylistener2 implements ApplicationListener<ApplicationEnvironmentPr
 		properties.setProperty("shen","xiaolong");
 		PropertySource propertySource=new PropertiesPropertySource("myproperites",properties);
 		event.getEnvironment().getPropertySources().addLast(propertySource);
-		event.getEnvironment().getPropertySources().stream().forEach(System.out::println);
+		//event.getEnvironment().getPropertySources().stream().forEach(System.out::println);
+		System.out.println("环境变量=================================================");
+		event.getEnvironment().getSystemEnvironment().forEach((x,y)->{
+			System.out.print(x+"=");
+			System.out.println(y);
+		});
+
+		System.out.println("系统属性=================================================");
+		event.getEnvironment().getSystemProperties().forEach((x,y)->{
+			System.out.print(x+"=");
+			System.out.println(y);
+		});
 		System.out.println("监听了-----"+event.getSource());
 		System.out.println("监听了-----"+event.getClass());
 		System.out.println("自己的listener2被监听");
